@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 
 
 @Entity
-@Table(name = "productos")
+@Table(name = "categorias")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -22,21 +22,19 @@ public class Categoria {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_categoria")
-    private Long id; 
+    private Long id;
 
-    @Column (nullable=false, length = 28)
-    private String nombreCategoria; 
+    @Column(nullable = false, length = 100)
+    private String nombre;
 
-    @Column (nullable=false, length=100)
-    private String descripcionCategoria;
+    @Column(nullable = true, length = 255)
+    private String descripcion;
 
-    @Column (nullable=false, length=255)
-    private String imagenUrl; 
+    @Column(name = "imagen_url", nullable = true, length = 255)
+    private String imagenUrl;
 
     @Column(nullable = true)
     private Boolean activo;
-
-
-
+    
 }
 
