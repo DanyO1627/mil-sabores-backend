@@ -28,23 +28,23 @@ public class Producto {
     @Column (nullable=false, length = 100)
     private String nombreProducto; 
 
-    @Column (nullable=false, length=280)
-    private String descripcionProducto;
-
-    @Column (nullable=false, length=400)
-    private String descripcionLarga; 
+    @Column(nullable = false)
+    private Double precio;
 
     @Column(name = "imagen_url", nullable = false) 
     private String imagenUrl;
 
-    @Column(nullable = false)
-    private Double precio;
+    @Column (nullable=false, length=280)
+    private String descripcionProducto;
 
-    @Column(nullable = false, precision = 2)
-    private Integer stock;
+    @Column (nullable=false, length=400)
+    private String descripcion_larga; 
 
     @Column(nullable = true)
     private Boolean activo;
+
+    @Column(nullable = false, precision = 2)
+    private Integer stock;
 
     @ManyToOne
     @JoinColumn(name="id_categoria", nullable = true)

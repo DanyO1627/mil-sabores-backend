@@ -34,7 +34,7 @@ public class Categoria {
     private String imagenUrl;
 
     @Column(nullable = true)
-    private Boolean activo;
+    private Boolean activa;
     
 }
 
