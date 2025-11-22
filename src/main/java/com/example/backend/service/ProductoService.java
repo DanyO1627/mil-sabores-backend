@@ -36,7 +36,9 @@ public class ProductoService {
 
     // para que busque por nombre
     public List<Producto> findByNombre(String nombre) {
-        return productoRepository.findByNombreContainingIgnoreCase(nombre);
+        return productoRepository.findByNombreProductoContainingIgnoreCase(nombre);
+        
+
     }
 
     // para que busque por categoria

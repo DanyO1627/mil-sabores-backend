@@ -38,7 +38,7 @@ public class Producto {
     private String descripcionProducto;
 
     @Column (nullable=false, length=400)
-    private String descripcion_larga; 
+    private String descripcionLarga; 
 
     @Column(nullable = true)
     private Boolean activo;
