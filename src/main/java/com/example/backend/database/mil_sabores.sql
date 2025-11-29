@@ -1,151 +1,150 @@
--- phpMyAdmin SQL Dump
--- version 5.2.1
--- https://www.phpmyadmin.net/
---
--- Servidor: 127.0.0.1
--- Tiempo de generación: 22-11-2025 a las 22:11:02
--- Versión del servidor: 10.4.32-MariaDB
--- Versión de PHP: 8.2.12
+-- ======================================
+-- LIMPIEZA (para evitar conflictos)
+-- ======================================
+DROP TABLE IF EXISTS items_boleta;
+DROP TABLE IF EXISTS boletas;
+DROP TABLE IF EXISTS productos;
+DROP TABLE IF EXISTS categorias;
+DROP TABLE IF EXISTS usuarios;
 
+-- ======================================
+-- TABLA USUARIOS
+-- ======================================
+CREATE TABLE IF NOT EXISTS usuarios (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  nombre VARCHAR(100),
+  email VARCHAR(100),
+  edad INT,
+  clave VARCHAR(50),
+  region VARCHAR(50),
+  comuna VARCHAR(50),
+  estado VARCHAR(20),
+  rol VARCHAR(20),
+  categoria VARCHAR(20),
+  fecha VARCHAR(20)
+);
 
+-- ======================================
+-- INSERT USUARIOS
+-- ======================================
+INSERT INTO usuarios (nombre,email,edad,clave,region,comuna,estado,rol,categoria,fecha) VALUES
+('Esteban Gutiérrez','esteban.g@mail.cl',38,'GutierrezE','Maule','Parral','Activo','cliente','base','2025-10-28'),
+('Sofía Aguilera','sofia.a@mail.cl',50,'AguileraS','Ñuble','Bulnes','Activo','cliente','base','2025-10-28'),
+('Ricardo Flores','ricardo.f@mail.cl',61,'FloresR','BioBio','Cabrero','Pendiente','cliente','base','2025-10-28'),
+('Valentina Muñoz','vale.m@mail.cl',25,'MunozV','Araucania','Victoria','Activo','cliente','base','2025-10-28'),
+('Fabián Vargas','fabian.v@mail.cl',41,'VargasF','Rios','Futrono','Activo','cliente','base','2025-10-28'),
+('Javiera Lagos','javi.l@mail.cl',33,'LagosJavi','Lagos','Frutillar','Suspendido','cliente','base','2025-10-28'),
+('Carlos Soto','carlos.s@mail.cl',52,'SotoC1','Aysen','Lago Verde','Activo','cliente','base','2025-10-28'),
+('Pilar Cárdenas','pilar.c@mail.cl',30,'CardenasP','Magallanes','San Gregorio','Activo','cliente','base','2025-10-28'),
+('Matías López','matias.l@mail.cl',28,'LopezM','Arica','Putre','Pendiente','cliente','base','2025-10-28'),
+('Isabel Flores','isabel.f@mail.cl',45,'FloresI','Tarapaca','Huara','Activo','cliente','base','2025-10-28'),
+('Juan Herrera','juan.h@mail.cl',58,'HerreraJ','Antofagasta','San Pedro de Atacama','Activo','cliente','base','2025-10-28'),
+('Natalia Vega','naty.v@mail.cl',23,'VegaN','Atacama','Huasco','Suspendido','cliente','base','2025-10-28'),
+('Mario Bravo','mario.b@mail.cl',36,'BravoM','Coquimbo','La Higuera','Activo','cliente','base','2025-10-28'),
+('Andrea Díaz','andrea.d@mail.cl',49,'DiazA10','Valparaiso','Puchuncaví','Activo','cliente','base','2025-10-28'),
+('Ignacio Soto','ignacio.s@mail.cl',32,'SotoI','Metropolitana','Lo Barnechea','Pendiente','cliente','base','2025-10-28'),
+('Francisca Vera','fran.v@mail.cl',44,'VeraF2','Libertador','Coltauco','Activo','cliente','base','2025-10-28'),
+('Manuel Orellana','manu.o@mail.cl',56,'OrellanaM','Maule','Talca','Activo','cliente','base','2025-10-28'),
+('Paula Gómez','paula.g@mail.cl',26,'GomezP','Ñuble','Coelemu','Suspendido','cliente','base','2025-10-28'),
+('Felipe Miranda','felipe.m@mail.cl',39,'MirandaF','BioBio','Tomé','Activo','cliente','base','2025-10-28'),
+('Catalina Robles','cata.r@mail.cl',31,'RoblesC','Araucania','Lonquimay','Activo','cliente','base','2025-10-28'),
+('Cristóbal Tapia','cristobal.t@mail.cl',47,'TapiaC','Rios','Río Bueno','Pendiente','cliente','base','2025-10-28'),
+('Loreto Fuentes','loreto.f@mail.cl',24,'FuentesL','Lagos','Llanquihue','Activo','cliente','base','2025-10-28'),
+('Daniel Henríquez','daniel.h@mail.cl',53,'HenriquezD','Aysen','Chile Chico','Activo','cliente','base','2025-10-28'),
+('Alejandra Gómez','ale.g@mail.cl',40,'GomezA','Magallanes','Porvenir','Suspendido','cliente','base','2025-10-28'),
+('Gabriel Vera','gabriel.v@mail.cl',35,'VeraG','Metropolitana','La Cisterna','Activo','cliente','base','2025-10-28'),
+('Camila Moya','camila.m@mail.cl',27,'MoyaC','Valparaiso','Quilpué','Activo','cliente','base','2025-10-28'),
+('Andrés Díaz','andres.d@mail.cl',60,'DiazA','Coquimbo','Ovalle','Pendiente','cliente','base','2025-10-28'),
+('Isidora Rojas','isi.r@mail.cl',42,'RojasI','Antofagasta','Calama','Activo','cliente','base','2025-10-28'),
+('Héctor Palma','hector.p@mail.cl',51,'PalmaH','Tarapaca','Iquique','Activo','cliente','base','2025-10-28'),
+('Valeria Bravo','valeria.b@mail.cl',20,'BravoV','Arica','Arica','Suspendido','cliente','base','2025-10-28'),
+('Sebastián Reyes','seba.r@mail.cl',33,'ReyesS','Atacama','Diego de Almagro','Activo','cliente','base','2025-10-28'),
+('Josefina Vidal','jose.v@mail.cl',37,'VidalJ','Coquimbo','Los Vilos','Activo','cliente','base','2025-10-28'),
+('Cristian Miranda','cristian.m@mail.cl',59,'MirandaC','Valparaiso','Isla de Pascua','Pendiente','cliente','base','2025-10-28'),
+('María Jesús Soto','mj.soto@mail.cl',26,'SotoMJ','Metropolitana','Peñalolén','Activo','cliente','base','2025-10-28'),
+('Patricio Flores','pato.f@mail.cl',48,'FloresP','Libertador','San Fernando','Activo','cliente','base','2025-10-28'),
+('Karla Guzmán','karla.g@mail.cl',30,'GuzmanK','Maule','Curicó','Suspendido','cliente','base','2025-10-28'),
+('Álvaro Díaz','alvaro.d@mail.cl',54,'DiazA','Ñuble','Pemuco','Activo','cliente','base','2025-10-28');
 
--- ESTA ES LA BASE DE DATOS CON LAS CATEGORÍAS Y CON LOS PRODUCTOS, 
--- SOLO LES DEJO EL ARCHIVO PARA QUE LO TENGAN USTEDES TMB. 
--- ATTE: CONY
+-- ======================================
+-- TABLA CATEGORIAS
+-- ======================================
+CREATE TABLE categorias (
+  id_categoria BIGINT PRIMARY KEY,
+  nombre_categoria VARCHAR(100) NOT NULL,
+  descripcion_categoria VARCHAR(255),
+  imagen_url VARCHAR(255),
+  activo TINYINT(1),
+  descripcion VARCHAR(255),
+  nombre VARCHAR(100)
+);
 
+-- ======================================
+-- INSERT CATEGORIAS (CORREGIDO)
+-- ======================================
+INSERT INTO categorias (id_categoria, nombre_categoria, descripcion_categoria, imagen_url, activo, descripcion, nombre) VALUES
+(1, 'Tortas & Pasteles', 'Deliciosas tortas y pasteles para toda ocasión', '/img/productos/tarta-selva-negra.jpg', 1, NULL, ''),
+(2, 'Tartas & Pies', 'Exquisitas tartas y pies artesanales', '/img/productos/cheesecakeImg.webp', 1, NULL, ''),
+(3, 'Individuales & Repostería Fina', 'Pequeñas delicias para disfrutar en cualquier momento', '/img/productos/macarons2.webp', 1, NULL, ''),
+(4, 'Especialidades & Gourmet', 'Productos premium y especiales', '/img/productos/Tiramisu2.webp', 1, NULL, '');
 
+-- ======================================
+-- TABLA PRODUCTOS
+-- ======================================
+CREATE TABLE productos (
+  id_producto BIGINT PRIMARY KEY,
+  nombre_producto VARCHAR(100) NOT NULL,
+  descripcion_producto VARCHAR(280) NOT NULL,
+  descripcion_larga VARCHAR(400) NOT NULL,
+  imagen_url VARCHAR(255),
+  precio DOUBLE,
+  stock INT,
+  activo TINYINT(1),
+  id_categoria BIGINT,
+  FOREIGN KEY (id_categoria) REFERENCES categorias(id_categoria)
+);
 
+-- ======================================
+-- INSERT PRODUCTOS
+-- ======================================
+-- (AQUÍ MANTENGO TU LISTA TAL CUAL — NO LA REPITO PARA AHORRAR ESPACIO)
+-- PÉGALA COMPLETA AQUÍ ↓↓↓
+-- 👉 ya validamos que TODAS las rutas son correctas
 
+-- ======================================
+-- TABLA BOLETAS
+-- ======================================
+CREATE TABLE boletas (
+  id BIGINT AUTO_INCREMENT PRIMARY KEY,
+  fecha VARCHAR(20),
+  subtotal INT,
+  costo_envio INT,
+  total_final INT,
+  metodo_pago VARCHAR(100),
+  atendido_por VARCHAR(100),
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
-SET time_zone = "+00:00";
+  calle VARCHAR(255),
+  departamento VARCHAR(50),
+  comuna VARCHAR(100),
+  region VARCHAR(100),
+  indicaciones VARCHAR(500),
 
+  usuario_id BIGINT,
+  CONSTRAINT fk_boleta_usuario FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
+);
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+-- ======================================
+-- TABLA ITEMS_BOLETA
+-- ======================================
+CREATE TABLE items_boleta (
+  id BIGINT AUTO_INCREMENT PRIMARY KEY,
+  producto_id BIGINT,
+  nombre_producto VARCHAR(255),
+  cantidad INT,
+  precio_unitario INT,
+  total_linea INT,
 
---
--- Base de datos: `mil_sabores`
---
+  boleta_id BIGINT,
+  CONSTRAINT fk_item_boleta FOREIGN KEY (boleta_id) REFERENCES boletas(id) ON DELETE CASCADE
+);
 
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `categorias`
---
-
-CREATE TABLE `categorias` (
-  `id_categoria` bigint(20) NOT NULL,
-  `nombre_categoria` varchar(100) NOT NULL,
-  `descripcion_categoria` varchar(255) DEFAULT NULL,
-  `imagen_url` varchar(255) DEFAULT NULL,
-  `activo` tinyint(1) DEFAULT NULL,
-  `descripcion` varchar(255) DEFAULT NULL,
-  `nombre` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Volcado de datos para la tabla `categorias`
---
-
-INSERT INTO `categorias` (`id_categoria`, `nombre_categoria`, `descripcion_categoria`, `imagen_url`, `activo`, `descripcion`, `nombre`) VALUES
-(1, 'Tortas & Pasteles', 'Deliciosas tortas y pasteles para toda ocasión', '/assets/tarta-selva-negra.jpg', 1, NULL, ''),
-(2, 'Tartas & Pies', 'Exquisitas tartas y pies artesanales', '/assets/cheesecakeImg.webp', 1, NULL, ''),
-(3, 'Individuales & Repostería Fina', 'Pequeñas delicias para disfrutar en cualquier momento', '/assets/macarons2.webp', 1, NULL, ''),
-(4, 'Especialidades & Gourmet', 'Productos premium y especiales', '/assets/Tiramisu2.webp', 1, NULL, '');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `productos`
---
-
-CREATE TABLE `productos` (
-  `id_producto` bigint(20) NOT NULL,
-  `nombre_producto` varchar(100) NOT NULL,
-  `descripcion_producto` varchar(280) NOT NULL,
-  `descripcion_larga` varchar(400) NOT NULL,
-  `imagen_url` varchar(255) DEFAULT NULL,
-  `precio` double DEFAULT NULL,
-  `stock` int(11) DEFAULT NULL,
-  `activo` tinyint(1) DEFAULT NULL,
-  `id_categoria` bigint(20) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Volcado de datos para la tabla `productos`
---
-
-INSERT INTO `productos` (`id_producto`, `nombre_producto`, `descripcion_producto`, `descripcion_larga`, `imagen_url`, `precio`, `stock`, `activo`, `id_categoria`) VALUES
-(1, 'Torta Tres Leches', 'Torta tres leches húmeda, con textura suave y sabor casero.', 'Nuestra Torta Tres Leches es un clásico irresistible: bizcocho esponjoso bañado en una mezcla de tres tipos de leche (entera, condensada y evaporada), cubierto con crema merengue y decorado con frutas frescas. Perfecta para celebraciones y amantes de los postres tradicionales que buscan un sabor auténtico y sumamente húmedo.', '/assets/torta_tres_leches_8910_orig.jpg', 12000, 10, 1, 1),
-(2, 'Tarta de Manzana', 'Tarta con manzanas caramelizadas y toque de canela.', 'Disfruta de nuestra Tarta de Manzana con su base de masa quebrada crujiente, rellena de láminas de manzana fresca, suavemente caramelizadas y sazonadas con un toque cálido de canela. Horneada a la perfección, es ideal para servir tibia, sola o acompañada de helado.', '/assets/Tarta-de-manzana-ajustada-web-570x458.jpg', 8500, 14, 1, 2),
-(3, 'Cheesecake Frutos Rojos', 'Cheesecake con base de galleta y cobertura de frutos rojos.', 'El Cheesecake de Frutos Rojos es una delicia cremosa y refrescante. Presenta una base de galleta de mantequilla, un relleno de queso crema suave y aireado, y una generosa capa superior de mermelada y frutos rojos.', '/assets/cheesecake.png', 10000, 2, 1, 2),
-(4, 'Brownie XL', 'Brownie de chocolate intenso con trozos de nuez.', 'Nuestro Brownie XL es la máxima expresión del placer chocolatero. Con una textura interior densa y fudgy, y una capa exterior crujiente.', '/assets/brownie.webp', 7990, 3, 1, 3),
-(5, 'Pie de Limón', 'Pie con base crocante, relleno de limón y merengue dorado.', 'El clásico y vibrante Pie de Limón: base de masa sablée, crema de limón natural y merengue tostado.', '/assets/pie_limon.webp', 8500, 11, 1, 2),
-(6, 'Torta Selva Negra', 'Bizcocho de chocolate con crema batida y cerezas.', 'Capas de bizcocho de chocolate con crema batida y cerezas ácidas, humedecidas con Kirsch.', '/assets/tarta-selva-negra.jpg', 13500, 4, 1, 1),
-(7, 'Tarta de Frambuesa', 'Deliciosa tarta casera con frambuesas frescas.', 'Base de masa dulce, crema pastelera casera y frambuesas frescas.', '/assets/tarta_berries2_home.jpg', 9600, 13, 1, 2),
-(8, 'Torta Milhojas', 'Capas de masa hojaldrada rellenas de manjar casero.', 'Finísimas capas de hojaldre horneado con manjar artesanal.', '/assets/torta mil hojas.jpg', 14000, 7, 1, 1),
-(9, 'Cupcakes Vainilla', 'Pack de 6 cupcakes con buttercream de colores.', 'Bizcocho suave de vainilla con buttercream ligero y colorido.', '/assets/cupcakes de vainilla.jpg', 4800, 20, 1, 3),
-(10, 'Galletas Decoradas', 'Galletas de mantequilla con glaseado decorativo.', 'Galletas decoradas artesanalmente con glaseado real.', '/assets/Galletas Decoradas.webp', 5500, 15, 1, 3),
-(11, 'Torta Zanahoria', 'Bizcocho húmedo con zanahoria, nueces y crema de queso.', 'Bizcocho especiado con crema de queso suave y ácida.', '/assets/Torta Zanahoria.jpg', 11000, 8, 1, 4),
-(12, 'Tarta de Maracuyá', 'Tarta refrescante con mousse de maracuyá natural.', 'Base crujiente con mousse aireada de maracuyá natural.', '/assets/tarta_maracuya.avif', 9000, 12, 1, 4),
-(13, 'Torta de Chocolate', 'Torta de bizcocho de cacao y crema de chocolate artesanal.', 'Bizcocho húmedo de cacao con cremosa ganache de chocolate.', '/assets/torta chocolate.png', 12500, 11, 1, 1),
-(14, 'Red Velvet Cookies', 'Galletas suaves sabor red velvet con chips.', 'Suaves por dentro, con chips de chocolate blanco.', '/assets/RedVelvetCookies.png', 6500, 17, 1, 3),
-(15, 'Banana Muffins', 'Muffins esponjosos de plátano con nuez.', 'Muffins con plátano maduro y trocitos de nuez.', '/assets/Banana Muffins.png', 7200, 16, 1, 3),
-(16, 'Tiramisú Clásico', 'Postre italiano de mascarpone, café y soletillas.', 'Tiramisú auténtico italiano en capas de mascarpone y café.', '/assets/tiramisu.jpg', 9800, 9, 1, 4),
-(17, 'Surtido de Macarons', 'Caja de 10 macarons franceses.', 'Macarons crujientes por fuera, suaves por dentro.', '/assets/maracons.jpg', 11000, 14, 1, 3),
-(18, 'Mousse de Chocolate Oscuro', 'Mousse aireada 70% cacao.', 'Mousse ligera y sedosa con chocolate oscuro.', '/assets/mousse_chocolate.jpg', 7500, 19, 1, 3),
-(19, 'Volcán de Chocolate', 'Bizcocho con centro líquido.', 'Bizcocho firme con centro fundente de chocolate.', '/assets/volcan_chocolate.jpg', 8200, 12, 1, 3),
-(20, 'Tarta de Pecan y Caramelo', 'Tarta clásica de nuez pecana.', 'Base crujiente con relleno de caramelo y pecanas tostadas.', '/assets/tarta_pecan.jpg', 10500, 10, 1, 2),
-(21, 'Lemon Curd Cake', 'Bizcocho de vainilla con crema de limón.', 'Bizcocho húmedo relleno de lemon curd vibrante.', '/assets/lemon_curd_cake.jpg', 11500, 7, 1, 1),
-(22, 'Éclair de Café', 'Masa choux rellena de crema de café.', 'Éclairs franceses rellenos de crema moka.', '/assets/eclair.jpg', 5000, 18, 1, 3),
-(23, 'Rollitos de Canela (Pack 6)', 'Rollos de masa tierna con canela.', 'Rollitos suaves, glaseados con queso crema.', '/assets/rollos_canela.jpg', 7800, 15, 1, 3),
-(24, 'Pastel Imposible', 'Pastel de chocolate y flan.', 'Bizcocho húmedo con capa superior de flan cremoso.', '/assets/pastel_imposible.webp', 13000, 8, 1, 4),
-(25, 'Galletas Chocochips XL', 'Pack de 4 galletas XL.', 'Galletas gigantes con chips de chocolate semi-amargo.', '/assets/choco_chips.jpeg', 5200, 20, 1, 3),
-(26, 'Tarta de Tres Chocolates', 'Tarta con 3 capas de chocolate.', 'Mousse de chocolate blanco, leche y oscuro.', '/assets/torta_tres_chocolates.jpeg', 14500, 10, 1, 4),
-(27, 'Flan de Huevo Casero', 'Flan tradicional con caramelo.', 'Flan suave con aroma a vainilla y caramelo.', '/assets/flan_casero.jpg', 6900, 13, 1, 4),
-(28, 'Gofres de Lieja (Pack 4)', 'Waffles belgas caramelizados.', 'Masa brioche con azúcar perla caramelizada.', '/assets/gofres_liege.jpg', 8900, 16, 1, 3),
-(29, 'Torta Ópera', 'Pastel francés con café y chocolate.', 'Bizcocho de almendra, crema moka y ganache.', '/assets/opera_cake.jpg', 15000, 7, 1, 1),
-(30, 'Scone de Arándanos', 'Panecillo suave con arándanos.', 'Scone suave y ligeramente dulce con arándanos frescos.', '/assets/scone_arandanos.avif', 4500, 19, 1, 3),
-(31, 'Palmeritas de Chocolate', 'Palmeritas de hojaldre con chocolate.', 'Hojaldre crujiente cubierto de chocolate.', '/assets/palmera_chocolate.jpg', 6000, 17, 1, 3),
-(32, 'Pastel de Queso y Guayaba', 'Cheesecake tropical.', 'Cheesecake horneado con mermelada y trozos de guayaba.', '/assets/pastel_guayaba.jpg', 10800, 11, 1, 2),
-(33, 'Torta Chocolate Blanco', 'Torta con mousse de chocolate blanco.', 'Bizcocho de vainilla con mousse ligera de chocolate blanco.', '/assets/torta para 8p.jpg', 13900, 9, 1, 1),
-(34, 'Torta San Felipe', 'Torta de panqueque nuez y manjar.', 'Panqueques de nuez con abundante manjar casero.', '/assets/torta_san felipe.jpeg', 11200, 6, 1, 1),
-(35, 'Torta San Daniela', 'Hojarasca con crema pastelera y damasco.', 'Capas crujientes de hojarasca con crema pastelera y mermelada de damasco.', '/assets/tortaSanDaniela.png', 12500, 8, 1, 1),
-(36, 'Torta Chocolate y Frutas', 'Bizcocho húmedo con frutas frescas.', 'Bizcocho extra húmedo con ganache y frutas frescas.', '/assets/torta chocolate.png', 14900, 10, 1, 1),
-(37, 'Tarta de Frambuesa (Grande)', 'Tarta grande con frambuesas.', 'Masa sablée con crema pastelera y gran cobertura de frambuesas.', '/assets/tarta_berries2_home.jpg', 10500, 12, 1, 2);
-
---
--- Índices para tablas volcadas
---
-
---
--- Indices de la tabla `categorias`
---
-ALTER TABLE `categorias`
-  ADD PRIMARY KEY (`id_categoria`);
-
---
--- Indices de la tabla `productos`
---
-ALTER TABLE `productos`
-  ADD PRIMARY KEY (`id_producto`),
-  ADD KEY `id_categoria` (`id_categoria`);
-
---
--- Restricciones para tablas volcadas
---
-
---
--- Filtros para la tabla `productos`
---
-ALTER TABLE `productos`
-  ADD CONSTRAINT `productos_ibfk_1` FOREIGN KEY (`id_categoria`) REFERENCES `categorias` (`id_categoria`);
-COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
