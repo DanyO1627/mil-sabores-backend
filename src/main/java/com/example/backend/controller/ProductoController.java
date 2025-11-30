@@ -42,10 +42,65 @@ public class ProductoController {
     }
 
     @PostMapping
-    public Producto create(@RequestBody Producto producto) {
-        return productoService.save(producto);
-    }
+    public ResponseEntity<?> create(@RequestBody Producto producto) {
 
+        // 🔵 AGREGAR ESTOS LOGS
+        System.out.println("========================================");
+        System.out.println("🔵 PETICIÓN POST RECIBIDA");
+        System.out.println("Producto recibido: " + producto);
+        System.out.println("Nombre: " + producto.getNombreProducto());
+        System.out.println("Precio: " + producto.getPrecio());
+        System.out.println("Stock: " + producto.getStock());
+        System.out.println("Imagen URL: " + producto.getImagenUrl());
+        System.out.println("Descripción: " + producto.getDescripcionProducto());
+        System.out.println("Descripción Larga: " + producto.getDescripcionLarga());
+        System.out
+                .println("Categoría: " + (producto.getCategoria() != null ? producto.getCategoria().getId() : "null"));
+        System.out.println("========================================");
+
+        // --- VALIDACIONES POR CAMPOS OBLIGATORIOS ---
+        if (producto.getNombreProducto() == null || producto.getNombreProducto().isBlank()) {
+            System.out.println("❌ ERROR: Nombre vacío");
+            return ResponseEntity.badRequest().body("El nombre del producto es obligatorio.");
+        }
+
+        if (producto.getPrecio() == null) {
+            System.out.println("❌ ERROR: Precio null");
+            return ResponseEntity.badRequest().body("El precio es obligatorio.");
+        }
+
+        if (producto.getStock() == null) {
+            System.out.println("❌ ERROR: Stock null");
+            return ResponseEntity.badRequest().body("El stock es obligatorio.");
+        }
+
+        if (producto.getImagenUrl() == null || producto.getImagenUrl().isBlank()) {
+            System.out.println("❌ ERROR: Imagen vacía");
+            return ResponseEntity.badRequest().body("La imagen es obligatoria.");
+        }
+
+        if (producto.getDescripcionProducto() == null || producto.getDescripcionProducto().isBlank()) {
+            System.out.println("❌ ERROR: Descripción vacía");
+            return ResponseEntity.badRequest().body("La descripción es obligatoria.");
+        }
+
+        if (producto.getDescripcionLarga() == null || producto.getDescripcionLarga().isBlank()) {
+            System.out.println("❌ ERROR: Descripción larga vacía");
+            return ResponseEntity.badRequest().body("La descripción larga es obligatoria.");
+        }
+
+        try {
+            // Si pasa todas las validaciones → guardar
+            System.out.println("✅ Intentando guardar producto...");
+            Producto guardado = productoService.save(producto);
+            System.out.println("✅ Producto guardado exitosamente con ID: " + guardado.getId());
+            return ResponseEntity.ok(guardado);
+        } catch (Exception e) {
+            System.out.println("❌ EXCEPCIÓN AL GUARDAR:");
+            e.printStackTrace();
+            return ResponseEntity.status(500).body("Error al guardar: " + e.getMessage());
+        }
+    }
 
     @PutMapping("/{id}")
     public ResponseEntity<?> update(@PathVariable Long id, @RequestBody Producto producto) {
@@ -59,7 +114,6 @@ public class ProductoController {
         return ResponseEntity.ok(actualizado);
     }
 
-
     @DeleteMapping("/{id}")
     public ResponseEntity<?> delete(@PathVariable Long id) {
         if (productoService.findById(id) == null) {
@@ -68,12 +122,10 @@ public class ProductoController {
         productoService.delete(id);
         return ResponseEntity.ok("Producto eliminado");
     }
-    
 
     @GetMapping("/buscar")
     public List<Producto> buscarPorNombre(@RequestParam String nombre) {
         return productoService.findByNombre(nombre);
-        
 
     }
 

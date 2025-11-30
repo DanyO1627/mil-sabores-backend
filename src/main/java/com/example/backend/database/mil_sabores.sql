@@ -28,6 +28,10 @@ CREATE TABLE IF NOT EXISTS usuarios (
 -- INSERT USUARIOS
 -- ======================================
 INSERT INTO usuarios (nombre,email,edad,clave,region,comuna,estado,rol,categoria,fecha) VALUES
+('admin','admin@milsabores.cl',NULL,'empleado123','RM','Providencia','Activo','Administrador genérico','empleado','2025-10-28'),
+('Constanza Pino','constanza.pino@milsabores.cl',NULL,'empleado123','RM','Providencia','Activo','Desarrolladora','empleado','2025-10-28'),
+('Evelin Calderón','evelin.calderon@milsabores.cl',NULL,'empleado123','RM','Providencia','Activo','Desarrolladora','empleado','2025-10-28'),
+('Daniela Oliveros','daniela.oliveros@milsabores.cl',NULL,'empleado123','RM','Providencia','Activo','Desarrolladora','empleado','2025-10-28'),
 ('Esteban Gutiérrez','esteban.g@mail.cl',38,'GutierrezE','Maule','Parral','Activo','cliente','base','2025-10-28'),
 ('Sofía Aguilera','sofia.a@mail.cl',50,'AguileraS','Ñuble','Bulnes','Activo','cliente','base','2025-10-28'),
 ('Ricardo Flores','ricardo.f@mail.cl',61,'FloresR','BioBio','Cabrero','Pendiente','cliente','base','2025-10-28'),
@@ -92,16 +96,16 @@ INSERT INTO categorias (id_categoria, nombre_categoria, descripcion_categoria, i
 -- TABLA PRODUCTOS
 -- ======================================
 CREATE TABLE productos (
-  id_producto BIGINT PRIMARY KEY,
-  nombre_producto VARCHAR(100) NOT NULL,
-  descripcion_producto VARCHAR(280) NOT NULL,
-  descripcion_larga VARCHAR(400) NOT NULL,
-  imagen_url VARCHAR(255),
-  precio DOUBLE,
-  stock INT,
-  activo TINYINT(1),
-  id_categoria BIGINT,
-  FOREIGN KEY (id_categoria) REFERENCES categorias(id_categoria)
+    id_producto BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    nombre_producto VARCHAR(100) NOT NULL,
+    precio DOUBLE NOT NULL,
+    imagen_url VARCHAR(255) NOT NULL,
+    descripcion_producto VARCHAR(280) NOT NULL,
+    descripcion_larga VARCHAR(400) NOT NULL,
+    activo BOOLEAN,
+    stock INT NOT NULL,
+    id_categoria BIGINT,
+    FOREIGN KEY (id_categoria) REFERENCES categorias(id_categoria)
 );
 
 -- ======================================
