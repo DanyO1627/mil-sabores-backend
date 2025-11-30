@@ -1,5 +1,7 @@
 package com.example.backend.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -24,11 +26,13 @@ public class Categoria {
     @Column(name = "id_categoria")
     private Long id;
 
-    @Column(nullable = false, length = 100)
-    private String nombre;
+    @JsonProperty("nombreCategoria")
+    @Column(name = "nombre_categoria", nullable = false, length = 100)
+    private String nombreCategoria;
 
-    @Column(nullable = true, length = 255)
-    private String descripcion;
+    @JsonProperty("descripcionCategoria")
+    @Column(name = "descripcion_categoria", nullable = true, length = 255)
+    private String descripcionCategoria;
 
     @Column(name = "imagen_url", nullable = true, length = 255)
     private String imagenUrl;
@@ -37,4 +41,3 @@ public class Categoria {
     private Boolean activo;
     
 }
-

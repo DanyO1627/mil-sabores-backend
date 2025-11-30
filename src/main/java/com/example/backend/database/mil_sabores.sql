@@ -11,7 +11,7 @@ DROP TABLE IF EXISTS usuarios;
 -- TABLA USUARIOS
 -- ======================================
 CREATE TABLE IF NOT EXISTS usuarios (
-  id INT AUTO_INCREMENT PRIMARY KEY,
+  id BIGINT AUTO_INCREMENT PRIMARY KEY,
   nombre VARCHAR(100),
   email VARCHAR(100),
   edad INT,
@@ -107,9 +107,82 @@ CREATE TABLE productos (
 -- ======================================
 -- INSERT PRODUCTOS
 -- ======================================
--- (AQUÍ MANTENGO TU LISTA TAL CUAL — NO LA REPITO PARA AHORRAR ESPACIO)
--- PÉGALA COMPLETA AQUÍ ↓↓↓
--- 👉 ya validamos que TODAS las rutas son correctas
+INSERT INTO productos 
+(id_producto, nombre_producto, descripcion_producto, descripcion_larga, imagen_url, precio, stock, activo, id_categoria) VALUES
+(1, 'Torta Tres Leches', 'Torta tres leches húmeda, con textura suave y sabor casero.', 'Nuestra Torta Tres Leches es un clásico irresistible: bizcocho esponjoso bañado en una mezcla de tres tipos de leche...', '/img/productos/torta_tres_leches_8910_orig.jpg', 12000, 10, 1, 1),
+
+(2, 'Tarta de Manzana', 'Tarta con manzanas caramelizadas y toque de canela.', 'Disfruta de nuestra Tarta de Manzana...', '/img/productos/Tarta-de-manzana-ajustada-web-570x458.jpg', 8500, 14, 1, 2),
+
+(3, 'Cheesecake Frutos Rojos', 'Cheesecake con base de galleta...', 'El Cheesecake de Frutos Rojos es una delicia...', '/img/productos/cheesecake.png', 10000, 2, 1, 2),
+
+(4, 'Brownie XL', 'Brownie de chocolate intenso...', 'Nuestro Brownie XL es la máxima expresión...', '/img/productos/brownie.webp', 7990, 3, 1, 3),
+
+(5, 'Pie de Limón', 'Pie con base crocante...', 'El clásico y vibrante Pie de Limón...', '/img/productos/pie_limon.webp', 8500, 11, 1, 2),
+
+(6, 'Torta Selva Negra', 'Bizcocho de chocolate...', 'Capas de bizcocho de chocolate...', '/img/productos/tarta-selva-negra.jpg', 13500, 4, 1, 1),
+
+(7, 'Tarta de Frambuesa', 'Deliciosa tarta casera...', 'Base de masa dulce...', '/img/productos/tarta_frambuesa.jpg', 9600, 13, 1, 2),
+
+(8, 'Torta Milhojas', 'Capas de masa hojaldrada...', 'Finísimas capas de hojaldre...', '/img/productos/torta%20mil%20hojas.jpg', 14000, 7, 1, 1),
+
+(9, 'Cupcakes Vainilla', 'Pack de 6 cupcakes...', 'Bizcocho suave de vainilla...', '/img/productos/cupcakes%20de%20vainilla.jpg', 4800, 20, 1, 3),
+
+(10, 'Galletas Decoradas', 'Galletas de mantequilla...', 'Galletas decoradas artesanalmente...', '/img/productos/Galletas%20Decoradas.webp', 5500, 15, 1, 3),
+
+(11, 'Torta Zanahoria', 'Bizcocho húmedo...', 'Bizcocho especiado...', '/img/productos/Torta%20Zanahoria.jpg', 11000, 8, 1, 4),
+
+(12, 'Tarta de Maracuyá', 'Tarta refrescante...', 'Base crujiente...', '/img/productos/tarta_maracuya.avif', 9000, 12, 1, 4),
+
+(13, 'Torta de Chocolate', 'Torta de bizcocho...', 'Bizcocho húmedo...', '/img/productos/torta%20chocolate.png', 12500, 11, 1, 1),
+
+(14, 'Red Velvet Cookies', 'Galletas suaves...', 'Suaves por dentro...', '/img/productos/RedVelvetCookies.png', 6500, 17, 1, 3),
+
+(15, 'Banana Muffins', 'Muffins esponjosos...', 'Muffins con plátano...', '/img/productos/Banana%20Muffins.png', 7200, 16, 1, 3),
+
+(16, 'Tiramisú Clásico', 'Postre italiano...', 'Tiramisú auténtico...', '/img/productos/tiramisu.jpg', 9800, 9, 1, 4),
+
+(17, 'Surtido de Macarons', 'Caja de 10 macarons...', 'Macarons crujientes...', '/img/productos/maracons.jpg', 11000, 14, 1, 3),
+
+(18, 'Mousse de Chocolate Oscuro', 'Mousse aireada...', 'Mousse ligera...', '/img/productos/mousse_chocolate.jpg', 7500, 19, 1, 3),
+
+(19, 'Volcán de Chocolate', 'Bizcocho con centro líquido...', 'Bizcocho firme...', '/img/productos/volcan_chocolate.jpg', 8200, 12, 1, 3),
+
+(20, 'Tarta de Pecan y Caramelo', 'Tarta clásica...', 'Base crujiente...', '/img/productos/tarta_pecan.jpg', 10500, 10, 1, 2),
+
+(21, 'Lemon Curd Cake', 'Bizcocho de vainilla...', 'Bizcocho húmedo...', '/img/productos/lemon_curd_cake.jpg', 11500, 7, 1, 1),
+
+(22, 'Éclair de Café', 'Masa choux...', 'Éclairs franceses...', '/img/productos/eclair.jpg', 5000, 18, 1, 3),
+
+(23, 'Rollitos de Canela', 'Rollos de masa tierna...', 'Rollitos suaves...', '/img/productos/rollos_canela.jpg', 7800, 15, 1, 3),
+
+(24, 'Pastel Imposible', 'Pastel de chocolate...', 'Bizcocho húmedo...', '/img/productos/pastel_imposible.webp', 13000, 8, 1, 4),
+
+(25, 'Galletas Chocochips XL', 'Pack de 4 galletas...', 'Galletas gigantes...', '/img/productos/choco_chips.jpeg', 5200, 20, 1, 3),
+
+(26, 'Tarta de Tres Chocolates', 'Tarta con 3 capas...', 'Mousse de chocolate...', '/img/productos/torta_tres_chocolates.jpeg', 14500, 10, 1, 4),
+
+(27, 'Flan de Huevo Casero', 'Flan tradicional...', 'Flan suave...', '/img/productos/flan_casero.jpg', 6900, 13, 1, 4),
+
+(28, 'Gofres de Lieja', 'Waffles belgas...', 'Masa brioche...', '/img/productos/gofres_liege.jpg', 8900, 16, 1, 3),
+
+(29, 'Torta Ópera', 'Pastel francés...', 'Bizcocho de almendra...', '/img/productos/opera_cake.jpg', 15000, 7, 1, 1),
+
+(30, 'Scone de Arándanos', 'Panecillo suave...', 'Scone suave...', '/img/productos/scone_arandanos.avif', 4500, 19, 1, 3),
+
+(31, 'Palmeritas de Chocolate', 'Palmeritas de hojaldre...', 'Hojaldre crujiente...', '/img/productos/palmera_chocolate.jpg', 6000, 17, 1, 3),
+
+(32, 'Pastel de Queso y Guayaba', 'Cheesecake tropical...', 'Cheesecake horneado...', '/img/productos/pastel_guayaba.jpg', 10800, 11, 1, 2),
+
+(33, 'Torta Chocolate Blanco', 'Torta con mousse...', 'Bizcocho de vainilla...', '/img/productos/torta%20para%208p.jpg', 13900, 9, 1, 1),
+
+(34, 'Torta San Felipe', 'Torta de panqueque nuez...', 'Panqueques de nuez...', '/img/productos/torta_san%20felipe.jpeg', 11200, 6, 1, 1),
+
+(35, 'Torta San Daniela', 'Hojarasca con crema pastelera...', 'Capas crujientes...', '/img/productos/tortaSanDaniela.png', 12500, 8, 1, 1),
+
+(36, 'Torta Chocolate y Frutas', 'Bizcocho húmedo...', 'Bizcocho extra húmedo...', '/img/productos/torta%20chocolate.png', 14900, 10, 1, 1),
+
+(37, 'Tarta de Frambuesa (Grande)', 'Tarta grande...', 'Masa sablée...', '/img/productos/tarta_berries2_home.jpg', 10500, 12, 1, 2);
+
 
 -- ======================================
 -- TABLA BOLETAS
