@@ -221,3 +221,4 @@ CREATE TABLE items_boleta (
   CONSTRAINT fk_item_boleta FOREIGN KEY (boleta_id) REFERENCES boletas(id) ON DELETE CASCADE
 );
 
+
