@@ -1,11 +1,12 @@
 package com.example.backend.service;
 
-import com.example.backend.model.Boleta;
-import com.example.backend.model.ItemBoleta;
-import com.example.backend.repository.BoletaRepository;
-import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
+
+import org.springframework.stereotype.Service;
+
+import com.example.backend.model.Boleta;
+import com.example.backend.repository.BoletaRepository;
 
 @Service
 public class BoletaService {
