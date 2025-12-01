@@ -74,23 +74,21 @@ INSERT INTO usuarios (nombre,email,edad,clave,region,comuna,estado,rol,categoria
 -- TABLA CATEGORIAS
 -- ======================================
 CREATE TABLE categorias (
-  id_categoria BIGINT PRIMARY KEY,
+  id_categoria BIGINT AUTO_INCREMENT PRIMARY KEY,
   nombre_categoria VARCHAR(100) NOT NULL,
   descripcion_categoria VARCHAR(255),
   imagen_url VARCHAR(255),
-  activo TINYINT(1),
-  descripcion VARCHAR(255),
-  nombre VARCHAR(100)
+  activo TINYINT(1)
 );
 
 -- ======================================
 -- INSERT CATEGORIAS (CORREGIDO)
 -- ======================================
-INSERT INTO categorias (id_categoria, nombre_categoria, descripcion_categoria, imagen_url, activo, descripcion, nombre) VALUES
-(1, 'Tortas & Pasteles', 'Deliciosas tortas y pasteles para toda ocasión', '/img/productos/tarta-selva-negra.jpg', 1, NULL, ''),
-(2, 'Tartas & Pies', 'Exquisitas tartas y pies artesanales', '/img/productos/cheesecakeImg.webp', 1, NULL, ''),
-(3, 'Individuales & Repostería Fina', 'Pequeñas delicias para disfrutar en cualquier momento', '/img/productos/macarons2.webp', 1, NULL, ''),
-(4, 'Especialidades & Gourmet', 'Productos premium y especiales', '/img/productos/Tiramisu2.webp', 1, NULL, '');
+INSERT INTO categorias (id_categoria, nombre_categoria, descripcion_categoria, imagen_url, activo) VALUES
+(1, 'Tortas & Pasteles', 'Deliciosas tortas y pasteles para toda ocasión', '/img/productos/tarta-selva-negra.jpg', 1),
+(2, 'Tartas & Pies', 'Exquisitas tartas y pies artesanales', '/img/productos/cheesecakeImg.webp', 1),
+(3, 'Individuales & Repostería Fina', 'Pequeñas delicias para disfrutar en cualquier momento', '/img/productos/macarons2.webp', 1),
+(4, 'Especialidades & Gourmet', 'Productos premium y especiales', '/img/productos/Tiramisu2.webp', 1);
 
 -- ======================================
 -- TABLA PRODUCTOS

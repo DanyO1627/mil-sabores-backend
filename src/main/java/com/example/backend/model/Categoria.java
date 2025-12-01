@@ -34,7 +34,7 @@ public class Categoria {
     @Column(name = "descripcion_categoria", nullable = true, length = 255)
     private String descripcionCategoria;
 
-    @Column(name = "imagen_url", nullable = true, length = 255)
+    @Column(name = "imagen_url", columnDefinition = "TEXT")
     private String imagenUrl;
 
     @Column(nullable = true)

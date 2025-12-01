@@ -39,6 +39,7 @@ public class CategoriaController {
 
     @PostMapping
     public Categoria create(@RequestBody Categoria categoria) {
+        System.out.println("RECIBIDO: " + categoria);
         return categoriaService.save(categoria);
     }
 
