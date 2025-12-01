@@ -28,10 +28,10 @@ CREATE TABLE IF NOT EXISTS usuarios (
 -- INSERT USUARIOS
 -- ======================================
 INSERT INTO usuarios (nombre,email,edad,clave,region,comuna,estado,rol,categoria,fecha) VALUES
-('admin','admin@milsabores.cl',NULL,'empleado123','RM','Providencia','Activo','Administrador genérico','empleado','2025-10-28'),
-('Constanza Pino','constanza.pino@milsabores.cl',NULL,'empleado123','RM','Providencia','Activo','Desarrolladora','empleado','2025-10-28'),
-('Evelin Calderón','evelin.calderon@milsabores.cl',NULL,'empleado123','RM','Providencia','Activo','Desarrolladora','empleado','2025-10-28'),
-('Daniela Oliveros','daniela.oliveros@milsabores.cl',NULL,'empleado123','RM','Providencia','Activo','Desarrolladora','empleado','2025-10-28'),
+('admin','admin@milsabores.cl',NULL,'empleado123','RM','Providencia','Activo','admin','empleado','2025-10-28'),
+('Constanza Pino','constanza.pino@milsabores.cl',NULL,'empleado123','RM','Providencia','Activo','admin','empleado','2025-10-28'),
+('Evelin Calderón','evelin.calderon@milsabores.cl',NULL,'empleado123','RM','Providencia','Activo','admin','empleado','2025-10-28'),
+('Daniela Oliveros','daniela.oliveros@milsabores.cl',NULL,'empleado123','RM','Providencia','Activo','admin','empleado','2025-10-28'),
 ('Esteban Gutiérrez','esteban.g@mail.cl',38,'GutierrezE','Maule','Parral','Activo','cliente','base','2025-10-28'),
 ('Sofía Aguilera','sofia.a@mail.cl',50,'AguileraS','Ñuble','Bulnes','Activo','cliente','base','2025-10-28'),
 ('Ricardo Flores','ricardo.f@mail.cl',61,'FloresR','BioBio','Cabrero','Pendiente','cliente','base','2025-10-28'),
