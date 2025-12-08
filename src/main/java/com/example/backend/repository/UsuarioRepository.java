@@ -1,11 +1,13 @@
 package com.example.backend.repository;
 
-
-
-
-import com.example.backend.model.Usuario;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import com.example.backend.model.Usuario;
+
 public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
-    Usuario findByEmailAndClave(String email, String clave);
+    Usuario findByEmail(String email); // AHORA SOLO BUSCAMOS EL USUARIO POR EL EMAIL, 
+    // por la seguridad y porque ahora las claves estarán encriptadas.
 }
+
+
+
