@@ -1,0 +1,121 @@
+-- phpMyAdmin SQL Dump
+-- version 5.2.1
+-- https://www.phpmyadmin.net/
+--
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 10-12-2025 a las 13:58:50
+-- Versión del servidor: 10.4.32-MariaDB
+-- Versión de PHP: 8.2.12
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Base de datos: `mil_sabores`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuarios`
+--
+
+CREATE TABLE `usuarios` (
+  `id` bigint(20) NOT NULL,
+  `nombre` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `edad` int(11) DEFAULT NULL,
+  `clave` varchar(255) DEFAULT NULL,
+  `region` varchar(255) DEFAULT NULL,
+  `comuna` varchar(255) DEFAULT NULL,
+  `estado` varchar(255) DEFAULT NULL,
+  `rol` varchar(255) DEFAULT NULL,
+  `categoria` varchar(255) DEFAULT NULL,
+  `fecha` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `usuarios`
+--
+
+INSERT INTO `usuarios` (`id`, `nombre`, `email`, `edad`, `clave`, `region`, `comuna`, `estado`, `rol`, `categoria`, `fecha`) VALUES
+(44, 'Evelin 2', 'eve@2.com', NULL, '$2a$10$.aOqxafOwD8q6FU58wQnve/eS3ATTDyD7naAoYtfmB9gKFzQ2RDTy', 'Rios', 'Futrono', 'Pendiente', 'cliente', NULL, '2025-12-06'),
+(19, 'Ignacio Soto', 'ignacio.s@mail.cl', 32, '$2a$10$.JCHuCi5AWKH/G2rsr7KsuhvyoHasNnySTJ1sl9ObTPSZb/GUJlDy', 'Metropolitana', 'Lo Barnechea', 'Pendiente', 'cliente', 'base', '2025-10-28'),
+(47, 'Constanza Pino Villa 2', 'co.pinov@duocuc.cl', NULL, '$2a$10$.nGzmIzItwucw4o.6aE0b.xbmZbJ/ajm9g6KjPUYO9pJgLpZwY7JW', 'Metropolitana', 'Quilicura', 'Pendiente', 'cliente', NULL, '2025-12-10'),
+(4, 'Daniela Oliveros', 'daniela.oliveros@milsabores.cl', NULL, '$2a$10$.VmEFPPTgUdIJ.lS0Xohb.D9srbpAQ9UsqcNIs7/xeC7tqNap13qO', 'RM', 'Providencia', 'Activo', 'admin', 'empleado', '2025-10-28'),
+(10, 'Javiera Lagos', 'javi.l@mail.cl', 33, '$2a$10$/p2016fzvi2kZM/T/TomW.dO9EEOMFsm8VDycUC/PgW9D.Bv8hLES', 'Lagos', 'Frutillar', 'Suspendido', 'cliente', 'base', '2025-10-28'),
+(36, 'Josefina Vidal', 'jose.v@mail.cl', 37, '$2a$10$3SFryAsJ0OfopOnJZldIeemFyy9DFmDnMQs/CgFRLjFSAjCYAgiRO', 'Coquimbo', 'Los Vilos', 'Activo', 'cliente', 'base', '2025-10-28'),
+(26, 'Loreto Fuentes', 'loreto.f@mail.cl', 24, '$2a$10$3w/337ghB/qVeGHUi/nIU.9lvbTb/axNEp4ifm8y9RvYQkZ5ugp.e', 'Lagos', 'Llanquihue', 'Activo', 'cliente', 'base', '2025-10-28'),
+(45, 'eve2', 'eve@2.com', NULL, '$2a$10$6DwDtSh0eEdBGnfwMYxRYeRZnz7H/iGe0oEklN8FljB5RWkD1Fu/m', 'Lagos', 'Llanquihue', 'Pendiente', 'cliente', NULL, '2025-12-06'),
+(33, 'Héctor Palma', 'hector.p@mail.cl', 51, '$2a$10$7mkdNAeV63ulDs3joyQukeIvh93LQfnQ7EeTrqpP4Zs/5JD8d2jNy', 'Tarapaca', 'Iquique', 'Activo', 'cliente', 'base', '2025-10-28'),
+(37, 'Cristian Miranda', 'cristian.m@mail.cl', 59, '$2a$10$9iPdGCe6zb3Aj2RIMA6huuuzMs4XTw7OuWR/4Wy/puaZjQA4K7OG.', 'Valparaiso', 'Isla de Pascua', 'Pendiente', 'cliente', 'base', '2025-10-28'),
+(25, 'Cristóbal Tapia', 'cristobal.t@mail.cl', 47, '$2a$10$a5/62OwYnRkJOEAZnL0fhe6UQbwJ7TraptUy0mX0VUZOLdcIhZGgm', 'Rios', 'Río Bueno', 'Pendiente', 'cliente', 'base', '2025-10-28'),
+(23, 'Felipe Miranda', 'felipe.m@mail.cl', 39, '$2a$10$bxJMOZcQyt.pp1V8mYOf8OdcpOjVN/ynoMDEZ5v9IwOH2Xri7FwFS', 'BioBio', 'Tomé', 'Activo', 'cliente', 'base', '2025-10-28'),
+(28, 'Alejandra Gómez', 'ale.g@mail.cl', 40, '$2a$10$BYEHfhy1s0ZcdH.wludpGu5V.SUvSJu3et61FQGZHEcCFgqrYNwNS', 'Magallanes', 'Porvenir', 'Suspendido', 'cliente', 'base', '2025-10-28'),
+(42, 'Valentina Cardenas', 'vale@milsabores.cl', NULL, '$2a$10$cCFs2egBB.CbrOsSLYYC5eEnX9rj6CZQFiANQRzV7XeNKyFgTXHUK', 'Lagos', 'Curaco de Vélez', 'Pendiente', 'cliente', NULL, '2025-12-01'),
+(40, 'Karla Guzmán', 'karla.g@mail.cl', 30, '$2a$10$DMVpHdOJvY2k8E68JWaADu/AiZOTCwXMNhNSjpIMEjOczdNDRbrZC', 'Maule', 'Curicó', 'Suspendido', 'cliente', 'base', '2025-10-28'),
+(24, 'Catalina Robles', 'cata.r@mail.cl', 31, '$2a$10$fohfZh/R1NfRiIkjll8Yzu3FMY83Rk/ED3sHVBkF9MEYsSw/MTI3u', 'Araucania', 'Lonquimay', 'Activo', 'cliente', 'base', '2025-10-28'),
+(8, 'Valentina Muñoz', 'vale.m@mail.cl', 25, '$2a$10$G2MNmvhoPPBFr9RWxJliHOwqvkQtrqu9uIn0yb8Pooxy4m5j.Dfsm', 'Araucania', 'Victoria', 'Activo', 'cliente', 'base', '2025-10-28'),
+(16, 'Natalia Vega', 'naty.v@mail.cl', 23, '$2a$10$Gcr1LqFKs7TYPUc1SdauyuyuqnDYsA5o.dxrA6YCAqZE0F27vtIMm', 'Atacama', 'Huasco', 'Suspendido', 'cliente', 'base', '2025-10-28'),
+(2, 'Constanza Pino', 'constanza.pino@milsabores.cl', NULL, '$2a$10$h5rV2Q4USoZNoVl0Hla06eOPH84vcSAFR9QGXjaD5nT9OPRumvaXi', 'RM', 'Providencia', 'Activo', 'admin', 'empleado', '2025-10-28'),
+(6, 'Sofía Aguilera', 'sofia.a@mail.cl', 50, '$2a$10$HtoGKubenIpOLuzFdjr0Neh4NaLPRukK/NTI.J.vlDUHF663IUwIG', 'Ñuble', 'Bulnes', 'Activo', 'cliente', 'base', '2025-10-28'),
+(35, 'Sebastián Reyes', 'seba.r@mail.cl', 33, '$2a$10$jYjKxSHYXTnRNymXhiczjuS1vXrqidfMVgMSF0Jw5PmE5vUse8fEi', 'Atacama', 'Diego de Almagro', 'Activo', 'cliente', 'base', '2025-10-28'),
+(15, 'Juan Herrera', 'juan.h@mail.cl', 58, '$2a$10$MN9ddLk8ToLvrYZN1chWAuQxQbwwregJbPpceL3/Cq7FSJ4l60yKi', 'Antofagasta', 'San Pedro de Atacama', 'Activo', 'cliente', 'base', '2025-10-28'),
+(27, 'Daniel Henríquez', 'daniel.h@mail.cl', 53, '$2a$10$MoVdE.fpA8t8Hcd.bBwzC.Hd/W82XToQbKMeGdByus/yT05B85o/u', 'Aysen', 'Chile Chico', 'Activo', 'cliente', 'base', '2025-10-28'),
+(12, 'Pilar Cárdenas', 'pilar.c@mail.cl', 30, '$2a$10$MR5C7u7dCHAJpRi6xOLDFOGAQ/dt/3izyhvpmGdnKrBf45iVqVQFW', 'Magallanes', 'San Gregorio', 'Activo', 'cliente', 'base', '2025-10-28'),
+(11, 'Carlos Soto', 'carlos.s@mail.cl', 52, '$2a$10$N3K.nxYSDhSO1C3yHVFZNuwJ4nMmMeYcblNvDw3wD7SfGEdFKU6dC', 'Aysen', 'Lago Verde', 'Activo', 'cliente', 'base', '2025-10-28'),
+(14, 'Isabel Flores', 'isabel.f@mail.cl', 45, '$2a$10$nDpK4C66eJLcwSjJjdsDc.ZU5R6J9eAB/DTyHv38OpF8S8Ds8Coee', 'Tarapaca', 'Huara', 'Activo', 'cliente', 'base', '2025-10-28'),
+(20, 'Francisca Vera', 'fran.v@mail.cl', 44, '$2a$10$ngWDkMyEYzKMOwOiLkkX3.hdPsAQgdtsuKXVYowFiZ3PLtcT9QSTy', 'Libertador', 'Coltauco', 'Activo', 'cliente', 'base', '2025-10-28'),
+(34, 'Valeria Bravo', 'valeria.b@mail.cl', 20, '$2a$10$OAcWMhv/sdQrfabxdN46j.bIZ0KOH.rkBDRg7715pY1FR1qPQ72/y', 'Arica', 'Arica', 'Suspendido', 'cliente', 'base', '2025-10-28'),
+(48, 'Nicole Empleada', 'nicole@milsabores.cl', NULL, '$2a$10$oRn3JCqx1Ow3TzKUsihvDuhO88ovVusfSPPYYcQAXRQISUCK6R/TW', 'Metropolitana', 'Estación Central', 'Pendiente', 'admin', NULL, '2025-12-10'),
+(18, 'Andrea Díaz', 'andrea.d@mail.cl', 49, '$2a$10$p8MdDa0BKMocUETWUp8Xo.tNSRcLIJpyhqqcSV5Ji1FZJukXUGUsm', 'Valparaiso', 'Puchuncaví', 'Activo', 'cliente', 'base', '2025-10-28'),
+(29, 'Gabriel Vera', 'gabriel.v@mail.cl', 35, '$2a$10$PoCuAuWxdE4lWwjzLNgwxOoQ3LYGh2hpqjz7pDA/hTNzlyXpzRJfC', 'Metropolitana', 'La Cisterna', 'Activo', 'cliente', 'base', '2025-10-28'),
+(13, 'Matías López', 'matias.l@mail.cl', 28, '$2a$10$PqSaoAk5osDAS3SpJn0DYe5HeqCGuhYxCH0b5aBh8rmYa.wF/jaAy', 'Arica', 'Putre', 'Pendiente', 'cliente', 'base', '2025-10-28'),
+(41, 'Álvaro Díaz', 'alvaro.d@mail.cl', 54, '$2a$10$qD2sjqV1rTVrhNTsmec6zO/2Faf6JVT08Pkda0PEQlrBSxvvoCxW2', 'Ñuble', 'Pemuco', 'Activo', 'cliente', 'base', '2025-10-28'),
+(38, 'María Jesús Soto', 'mj.soto@mail.cl', 26, '$2a$10$QPxIHlyKTmwJ3z057u9Hpe1QhsoK8GcnkdxnwqPnqoWodhiSOOb/S', 'Metropolitana', 'Peñalolén', 'Activo', 'cliente', 'base', '2025-10-28'),
+(39, 'Patricio Flores', 'pato.f@mail.cl', 48, '$2a$10$SHqNRU1CZynbH5xALaPn8OgRPfE0ayjsq9kkgJpDWyIB.ST1kfuW2', 'Libertador', 'San Fernando', 'Activo', 'cliente', 'base', '2025-10-28'),
+(32, 'Isidora Rojas', 'isi.r@mail.cl', 42, '$2a$10$sv0q6AQFJbMQmZ9KPlmm/uCWjLyAtWEw1qZpfBPmOgnzlYwJEqLTy', 'Antofagasta', 'Calama', 'Activo', 'cliente', 'base', '2025-10-28'),
+(7, 'Ricardo Flores', 'ricardo.f@mail.cl', 61, '$2a$10$TSmP/KKWii7mjCAKQCZIc.6qngnZOF6X2ZXqKq59Gm.mg1jAuHZMi', 'BioBio', 'Cabrero', 'Pendiente', 'cliente', 'base', '2025-10-28'),
+(31, 'Andrés Díaz', 'andres.d@mail.cl', 60, '$2a$10$uHOFjQA2QtdqbG6C5qBP4e3qCEjtwIBMDbUm/Yg4bH3OQF6/CdxAO', 'Coquimbo', 'Ovalle', 'Pendiente', 'cliente', 'base', '2025-10-28'),
+(22, 'Paula Gómez', 'paula.g@mail.cl', 26, '$2a$10$UiEFQCp2sWou2P4eu08JlOsGj07hwhWiuIlCLAeWnbvg8QQfuJoCW', 'Ñuble', 'Coelemu', 'Suspendido', 'cliente', 'base', '2025-10-28'),
+(21, 'Manuel Orellana', 'manu.o@mail.cl', 56, '$2a$10$uMYgzb5CPin3gTGe7pOeKuwLbizo9JcSFH4JjoQ2s0ucO1KFjBuIG', 'Maule', 'Talca', 'Activo', 'cliente', 'base', '2025-10-28'),
+(43, 'Maria Tester', 'maria@test.com', NULL, '$2a$10$V0ac0Su/DzZzvH9vAAUFf.txak./QI./SKLxx2.4vd0OG0uXX3bOG', 'Araucania', 'Pucón', 'Pendiente', 'cliente', NULL, '2025-12-06'),
+(5, 'Esteban Gutiérrez', 'esteban.g@mail.cl', 38, '$2a$10$wG0gvTHNmcE61yz4T/Vrj.s9akadgUqCkfkLeopZxKQEbv6XzO7rO', 'Maule', 'Parral', 'Activo', 'cliente', 'base', '2025-10-28'),
+(1, 'admin', 'admin@milsabores.cl', NULL, '$2a$10$wKY.s7niyv8J7t032VlAbu.pLjQiY2xwmKluZVT3ptrevjjLKXjPm', 'RM', 'Providencia', 'Activo', 'admin', 'empleado', '2025-10-28'),
+(17, 'Mario Bravo', 'mario.b@mail.cl', 36, '$2a$10$wUI0.e5Y1LWnjhszR1Yf6egcoo18zVy19mzaypl5CJ0w4fnZd7ZEa', 'Coquimbo', 'La Higuera', 'Activo', 'cliente', 'base', '2025-10-28'),
+(3, 'Evelin Calderón', 'evelin.calderon@milsabores.cl', NULL, '$2a$10$Y11qlGrQ25d1jkAWRzSkNuhHtfIQ3QafXCsox50y4/dsJclEmH3gi', 'RM', 'Providencia', 'Activo', 'admin', 'empleado', '2025-10-28'),
+(30, 'Camila Moya', 'camila.m@mail.cl', 27, '$2a$10$YcqJFqBK4oPzuegtDnPKze/kj9yErVs3KPvZ788eKiptDKltvPR6W', 'Valparaiso', 'Quilpué', 'Activo', 'cliente', 'base', '2025-10-28'),
+(46, 'Alexis Sánchez', 'sanchez7@gmail.com', NULL, '$2a$10$ziPvT1OeWYtNX3ZBEgQUruy4I6EpMAe9Vf.DM3AcSj7PvVXnSfDrC', 'Antofagasta', 'Tocopilla', 'Pendiente', 'cliente', NULL, '2025-12-09'),
+(9, 'Fabián Vargas', 'fabian.v@mail.cl', 41, '$2a$10$znsBiakgqYtDpZcIsMqiROn4dpVLj97bgY4xIx1gtPFlFo0XLe4eG', 'Rios', 'Futrono', 'Activo', 'cliente', 'base', '2025-10-28');
+
+--
+-- Índices para tablas volcadas
+--
+
+--
+-- Indices de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

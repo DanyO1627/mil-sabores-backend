@@ -1,0 +1,93 @@
+-- phpMyAdmin SQL Dump
+-- version 5.2.1
+-- https://www.phpmyadmin.net/
+--
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 10-12-2025 a las 14:03:20
+-- Versión del servidor: 10.4.32-MariaDB
+-- Versión de PHP: 8.2.12
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Base de datos: `mil_sabores`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `boletas`
+--
+
+CREATE TABLE `boletas` (
+  `id` bigint(20) NOT NULL,
+  `fecha` varchar(255) DEFAULT NULL,
+  `subtotal` int(11) DEFAULT NULL,
+  `costo_envio` int(11) DEFAULT NULL,
+  `total_final` int(11) DEFAULT NULL,
+  `metodo_pago` varchar(255) DEFAULT NULL,
+  `atendido_por` varchar(255) DEFAULT NULL,
+  `calle` varchar(255) DEFAULT NULL,
+  `departamento` varchar(255) DEFAULT NULL,
+  `comuna` varchar(255) DEFAULT NULL,
+  `region` varchar(255) DEFAULT NULL,
+  `indicaciones` varchar(255) DEFAULT NULL,
+  `usuario_id` bigint(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `boletas`
+--
+
+INSERT INTO `boletas` (`id`, `fecha`, `subtotal`, `costo_envio`, `total_final`, `metodo_pago`, `atendido_por`, `calle`, `departamento`, `comuna`, `region`, `indicaciones`, `usuario_id`) VALUES
+(7, '09-12-2025', 113200, 3000, 116200, 'Tarjeta de débito', 'Constanza Pino', 'Av. Libertador 98', 'lalal 123', 'Tocopilla', 'Antofagasta', 'casa grande 2 perros', NULL),
+(8, '09-12-2025', 73400, 3000, 76400, 'Tarjeta de débito', 'Constanza Pino', 'Quilicura 1334', '', 'Quilicura', 'Metropolitana', 'casa normal', NULL),
+(9, '09-12-2025', 8500, 3000, 11500, 'Tarjeta de débito', 'Constanza Pino', 'Quilicura 1334', '', 'Quilicura', 'Metropolitana', 'casa con reja negra', NULL),
+(10, '10-12-2025', 68400, 3000, 71400, 'Tarjeta de débito', 'Constanza Pino', 'Ana Lala', '357', 'San Javier', 'Maule', 'casa con pasto', NULL),
+(11, '10-12-2025', 28500, 3000, 31500, 'Tarjeta de débito', 'Constanza Pino', 'Ana Lala', '357', 'San Rafael', 'Maule', 'casa', NULL),
+(12, '10-12-2025', 14000, 3000, 17000, 'Tarjeta de débito', 'Constanza Pino', 'Ana Lala', '357', 'Constitución', 'Maule', 'un árbol a fuera', NULL),
+(13, '10-12-2025', 8500, 3000, 11500, 'Tarjeta de débito', 'Constanza Pino', 'Ana Lala', '357', 'Empedrado', 'Maule', 'g', NULL);
+
+--
+-- Índices para tablas volcadas
+--
+
+--
+-- Indices de la tabla `boletas`
+--
+ALTER TABLE `boletas`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_boleta_usuario` (`usuario_id`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `boletas`
+--
+ALTER TABLE `boletas`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- Restricciones para tablas volcadas
+--
+
+--
+-- Filtros para la tabla `boletas`
+--
+ALTER TABLE `boletas`
+  ADD CONSTRAINT `fk_boleta_usuario` FOREIGN KEY (`usuario_id`) REFERENCES `usuarios` (`id`);
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

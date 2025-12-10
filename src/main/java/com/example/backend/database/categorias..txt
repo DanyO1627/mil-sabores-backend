@@ -1,0 +1,63 @@
+-- phpMyAdmin SQL Dump
+-- version 5.2.1
+-- https://www.phpmyadmin.net/
+--
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 10-12-2025 a las 14:04:23
+-- Versión del servidor: 10.4.32-MariaDB
+-- Versión de PHP: 8.2.12
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Base de datos: `mil_sabores`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `categorias`
+--
+
+CREATE TABLE `categorias` (
+  `id_categoria` bigint(20) NOT NULL,
+  `nombre_categoria` varchar(100) NOT NULL,
+  `descripcion_categoria` varchar(255) DEFAULT NULL,
+  `imagen_url` varchar(255) DEFAULT NULL,
+  `activo` tinyint(1) DEFAULT NULL,
+  `descripcion` varchar(255) DEFAULT NULL,
+  `nombre` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `categorias`
+--
+
+INSERT INTO `categorias` (`id_categoria`, `nombre_categoria`, `descripcion_categoria`, `imagen_url`, `activo`, `descripcion`, `nombre`) VALUES
+(1, 'Tortas & Pasteles', 'Deliciosas tortas y pasteles para toda ocasión', '/img/productos/tarta-selva-negra.jpg', 1, NULL, ''),
+(2, 'Tartas & Pies', 'Exquisitas tartas y pies artesanales', '/img/productos/cheesecakeImg.webp', 1, NULL, ''),
+(3, 'Individuales & Repostería Fina', 'Pequeñas delicias para disfrutar en cualquier momento', '/img/productos/macarons2.webp', 1, NULL, ''),
+(4, 'Especialidades & Gourmet', 'Productos premium y especiales', '/img/productos/Tiramisu2.webp', 1, NULL, '');
+
+--
+-- Índices para tablas volcadas
+--
+
+--
+-- Indices de la tabla `categorias`
+--
+ALTER TABLE `categorias`
+  ADD PRIMARY KEY (`id_categoria`);
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

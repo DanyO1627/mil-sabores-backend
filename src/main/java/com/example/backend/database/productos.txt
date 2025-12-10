@@ -1,0 +1,123 @@
+-- phpMyAdmin SQL Dump
+-- version 5.2.1
+-- https://www.phpmyadmin.net/
+--
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 10-12-2025 a las 14:07:53
+-- Versión del servidor: 10.4.32-MariaDB
+-- Versión de PHP: 8.2.12
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Base de datos: `mil_sabores`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `productos`
+--
+
+CREATE TABLE `productos` (
+  `id_producto` bigint(20) NOT NULL,
+  `nombre_producto` varchar(100) NOT NULL,
+  `precio` double NOT NULL,
+  `imagen_url` varchar(255) NOT NULL,
+  `descripcion_producto` varchar(280) NOT NULL,
+  `descripcion_larga` varchar(400) NOT NULL,
+  `activo` tinyint(1) DEFAULT NULL,
+  `stock` int(11) NOT NULL,
+  `id_categoria` bigint(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `productos`
+--
+
+INSERT INTO `productos` (`id_producto`, `nombre_producto`, `precio`, `imagen_url`, `descripcion_producto`, `descripcion_larga`, `activo`, `stock`, `id_categoria`) VALUES
+(1, 'Torta de Treintaicinco Leches', 60000, 'http://localhost:9090/img/productos/torta_tres_leches_8910_orig.jpg', 'Torta tres leches húmeda, con textura suave y sabor casero.', 'Torta tres leches húmeda, con textura suave y sabor casero.', 1, 2, 1),
+(2, 'Tarta de Manzana', 8500, '/img/productos/Tarta-de-manzana-ajustada-web-570x458.jpg', 'Tarta con manzanas caramelizadas y toque de canela.', 'Disfruta de nuestra Tarta de Manzana...', 1, 14, 2),
+(3, 'Cheesecake Frutos Rojos', 10000, '/img/productos/cheesecake.png', 'Cheesecake con base de galleta...', 'El Cheesecake de Frutos Rojos es una delicia...', 1, 2, 2),
+(4, 'Brownie XL', 7990, '/img/productos/brownie.webp', 'Brownie de chocolate intenso...', 'Nuestro Brownie XL es la máxima expresión...', 1, 3, 3),
+(5, 'Pie de Limón', 8500, '/img/productos/pie_limon.webp', 'Pie con base crocante...', 'El clásico y vibrante Pie de Limón...', 1, 11, 2),
+(6, 'Torta Selva Negra', 13500, '/img/productos/tarta-selva-negra.jpg', 'Bizcocho de chocolate...', 'La auténtica Torta Selva Negra se compone de capas de bizcocho de chocolate humedecidas con licor de cerezas (Kirsch), intercaladas con crema fresca batida y cerezas ácidas. Una combinación sofisticada de sabores y texturas, ideal para los paladares más exigentes.', 1, 4, 1),
+(7, 'Tarta de Frambuesa', 9600, '/img/productos/tarta_frambuesa.jpg', 'Deliciosa tarta casera...', 'Base de masa dulce...', 1, 13, 2),
+(8, 'Torta Milhojas', 14000, '/img/productos/torta%20mil%20hojas.jpg', 'Capas de masa hojaldrada...', 'Finísimas capas de hojaldre...', 1, 7, 1),
+(9, 'Cupcakes Vainilla', 4800, '/img/productos/cupcakes%20de%20vainilla.jpg', 'Pack de 6 cupcakes...', 'Bizcocho suave de vainilla...', 1, 20, 3),
+(10, 'Galletas Decoradas', 5500, '/img/productos/Galletas%20Decoradas.webp', 'Galletas de mantequilla...', 'Galletas decoradas artesanalmente...', 1, 15, 3),
+(11, 'Torta Zanahoria', 11000, '/img/productos/Torta%20Zanahoria.jpg', 'Bizcocho húmedo...', 'Bizcocho especiado...', 1, 8, 4),
+(12, 'Tarta de Maracuyá', 9000, '/img/productos/tarta_maracuya.avif', 'Tarta refrescante...', 'Base crujiente...', 1, 12, 4),
+(13, 'Torta de Chocolate', 12500, '/img/productos/torta%20chocolate.png', 'Torta de bizcocho...', 'Bizcocho húmedo...', 1, 11, 1),
+(14, 'Red Velvet Cookies', 6500, '/img/productos/RedVelvetCookies.png', 'Galletas suaves...', 'Suaves por dentro...', 1, 17, 3),
+(15, 'Banana Muffins', 7200, '/img/productos/Banana%20Muffins.png', 'Muffins esponjosos...', 'Muffins con plátano...', 1, 16, 3),
+(16, 'Tiramisú Clásico', 9800, '/img/productos/tiramisu.jpg', 'Postre italiano...', 'Tiramisú auténtico...', 1, 9, 4),
+(17, 'Surtido de Macarons', 11000, '/img/productos/maracons.jpg', 'Caja de 10 macarons...', 'Macarons crujientes...', 1, 14, 3),
+(18, 'Mousse de Chocolate Oscuro', 7500, '/img/productos/mousse_chocolate.jpg', 'Mousse aireada...', 'Mousse ligera...', 1, 19, 3),
+(19, 'Volcán de Chocolate', 8200, '/img/productos/volcan_chocolate.jpg', 'Bizcocho con centro líquido...', 'Bizcocho firme...', 1, 12, 3),
+(20, 'Tarta de Pecan y Caramelo', 10500, '/img/productos/tarta_pecan.jpg', 'Tarta clásica...', 'Base crujiente...', 1, 10, 2),
+(21, 'Lemon Curd Cake', 11500, '/img/productos/lemon_curd_cake.jpg', 'Bizcocho de vainilla...', 'Bizcocho húmedo...', 1, 7, 1),
+(22, 'Éclair de Café', 5000, '/img/productos/eclair.jpg', 'Masa choux...', 'Éclairs franceses...', 1, 18, 3),
+(23, 'Rollitos de Canela', 7800, '/img/productos/rollos_canela.jpg', 'Rollos de masa tierna...', 'Rollitos suaves...', 1, 15, 3),
+(24, 'Pastel Imposible', 13000, '/img/productos/pastel_imposible.webp', 'Pastel de chocolate...', 'Bizcocho húmedo...', 1, 8, 4),
+(25, 'Galletas Chocochips XL', 5200, '/img/productos/choco_chips.jpeg', 'Pack de 4 galletas...', 'Galletas gigantes...', 1, 20, 3),
+(26, 'Tarta de Tres Chocolates', 14500, '/img/productos/torta_tres_chocolates.jpeg', 'Tarta con 3 capas...', 'Mousse de chocolate...', 1, 10, 4),
+(27, 'Flan de Huevo Casero', 6900, '/img/productos/flan_casero.jpg', 'Flan tradicional...', 'Flan suave...', 1, 13, 4),
+(28, 'Gofres de Lieja', 8900, '/img/productos/gofres_liege.jpg', 'Waffles belgas...', 'Masa brioche...', 1, 16, 3),
+(29, 'Torta Ópera', 15000, '/img/productos/opera_cake.jpg', 'Pastel francés...', 'Bizcocho de almendra...', 1, 7, 1),
+(30, 'Scone de Arándanos', 4500, '/img/productos/scone_arandanos.avif', 'Panecillo suave...', 'Scone suave...', 1, 19, 3),
+(31, 'Palmeritas de Chocolate', 6000, '/img/productos/palmera_chocolate.jpg', 'Palmeritas de hojaldre...', 'Hojaldre crujiente...', 1, 17, 3),
+(32, 'Pastel de Queso y Guayaba', 10800, '/img/productos/pastel_guayaba.jpg', 'Cheesecake tropical...', 'Cheesecake horneado...', 1, 11, 2),
+(33, 'Torta Chocolate Blanco', 13900, '/img/productos/torta%20para%208p.jpg', 'Torta con mousse...', 'Bizcocho de vainilla...', 1, 9, 1),
+(34, 'Torta San Felipe', 11200, '/img/productos/torta_san%20felipe.jpeg', 'Torta de panqueque nuez...', 'Panqueques de nuez...', 1, 6, 1),
+(35, 'Torta San Daniela', 12500, '/img/productos/tortaSanDaniela.png', 'Hojarasca con crema pastelera...', 'Capas crujientes...', 1, 8, 1),
+(36, 'Torta Chocolate y Frutas', 14900, '/img/productos/torta%20chocolate.png', 'Bizcocho húmedo...', 'Bizcocho extra húmedo...', 1, 10, 1),
+(37, 'Tarta de Frambuesa (Grande)', 10500, '/img/productos/tarta_berries2_home.jpg', 'Tarta grande...', 'Masa sablée...', 1, 12, 2),
+(38, 'Torta Selva Negra del Líder', 10000, 'https://quereceta.com/wp-content/uploads/Torta-Selva-Negra-1024x683.jpg', 'torta generica', 'torta generica', 1, 1, 1),
+(39, 'Torta de Chocolate', 12990, 'https://example.com/torta.jpg', 'Torta de chocolate bitter', 'Torta de chocolate de 1kg hecha artesanalmente', NULL, 30, 1),
+(40, 'Torta Tres Leches', 12000, '/img/productos/torta_tres_leches_8910_orig.jpg', 'Torta tres leches húmeda, con textura suave y sabor casero.', 'Nuestra Torta Tres Leches es un clásico irresistible: bizcocho esponjoso bañado en una mezcla de tres tipos de leche...', NULL, 10, 1),
+(41, 'Capuchino Vainilla', 3500, 'https://cdn7.kiwilimon.com/recetaimagen/38510/640x640/49413.jpg.webp', 'Disfruta de la armonía perfecta: nuestro espresso de granos seleccionados se combina con leche fresca perfectamente vaporizada y una generosa capa de espuma. Infusionado con sirope de vainilla de alta calidad para un acabado suave, aromático y reconfortante.', 'Disfruta de la armonía perfecta: nuestro espresso de granos seleccionados se combina con leche fresca perfectamente vaporizada y una generosa capa de espuma. Infusionado con sirope de vainilla de alta calidad para un acabado suave, aromático y reconfortante.', 1, 999, 4);
+
+--
+-- Índices para tablas volcadas
+--
+
+--
+-- Indices de la tabla `productos`
+--
+ALTER TABLE `productos`
+  ADD PRIMARY KEY (`id_producto`),
+  ADD KEY `id_categoria` (`id_categoria`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `productos`
+--
+ALTER TABLE `productos`
+  MODIFY `id_producto` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+
+--
+-- Restricciones para tablas volcadas
+--
+
+--
+-- Filtros para la tabla `productos`
+--
+ALTER TABLE `productos`
+  ADD CONSTRAINT `productos_ibfk_1` FOREIGN KEY (`id_categoria`) REFERENCES `categorias` (`id_categoria`);
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
