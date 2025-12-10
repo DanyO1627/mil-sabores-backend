@@ -24,6 +24,7 @@ public class UsuarioService {
         return repo.findAll();
     }
 
+
     // EN EL MISMO REGISTRO
     // ahora ENCRIPTAMOS las claves
     public Usuario registrar(Usuario u) {
@@ -72,3 +73,10 @@ public class UsuarioService {
         }).orElse(null);
     }
 }
+
+
+
+
+
+
+

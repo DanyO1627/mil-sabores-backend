@@ -41,24 +41,24 @@ public class AuthController {
             throw new RuntimeException("Credenciales inválidas");
         }
 
-        // comparar contraseña ingresada vs. contraseña encriptada en DB
+        // comparar contraseña ingresada vs la contraseña encriptada en DB
         if (!passwordEncoder.matches(request.getClave(), usuario.getClave())) {
             throw new RuntimeException("Credenciales inválidas");
         }
 
         // Generar JWT
         String token = jwtUtil.generateToken(
-            usuario.getId(),
-            usuario.getEmail(),
-            usuario.getRol()
-    );
+                usuario.getId(),
+                usuario.getEmail(),
+                usuario.getRol()
+        );
 
         return new LoginResponse(
-            usuario.getId(),
-            usuario.getNombre(),
-            usuario.getEmail(),
-            usuario.getRol(), 
-            token
+                usuario.getId(),
+                usuario.getNombre(),
+                usuario.getEmail(),
+                usuario.getRol(),
+                token
         );
     }
 
@@ -70,7 +70,7 @@ public class AuthController {
                 req.getNombre(),
                 req.getEmail(),
                 req.getEdad(),
-                passwordEncoder.encode(req.getClave()),   // clave encriptada
+                passwordEncoder.encode(req.getClave()), // clave encriptada
                 req.getRegion(),
                 req.getComuna(),
                 "Activo",
@@ -81,4 +81,9 @@ public class AuthController {
 
         return usuarioService.registrar(u);
     }
+
+
+
+
+
 }
